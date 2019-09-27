@@ -1,7 +1,7 @@
 # Bildarchiv
 Das Modul kopiert bei Auslösung durch eine gewählte Variable ein Bild. Es ist einstellbar wieviele Bilder gespeichert werden sollen.
 
-### Inhaltverzeichnis
+### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
 2. [Voraussetzungen](#2-voraussetzungen)
@@ -17,23 +17,23 @@ Das Modul kopiert bei Auslösung durch eine gewählte Variable ein Bild. Es ist 
 * Einstellbare Anzahl von Bildern, welche gespeichert werden sollen
 * Erstellt ein Ereignis, welches auf Variablenaktualisierung der Auslöservariable reagiert
 * Das Ereignis kann manuell auf persönliche Bedürfnisse angepasst werden und wird nicht überschrieben
-* Bilder kriegen den Zeitpunkt des Auslösens als Namen
+* Bilder bekommen den Zeitpunkt des Auslösens als Namen
 * Bilder werden chronologisch von alt -> neu in der Kategorie Bilder angezeigt
 * Automatisches Löschen der ältesten Bilder, beim Erreichen der eingestellten maximalen Bilderanzahl
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.x
+- IP-Symcon ab Version 4.2
 
 ### 3. Software-Installation
 
-* Über den Modul Store das Modul Bild-Archiv installieren.
-* Alternativ über das Modul Control folgende URL hinzufügen:
-´https://github.com/symcon/BildArchiv`  
+* Über den Module Store das Modul Bild-Archiv installieren.
+* Alternativ über das Module Control folgende URL hinzufügen:
+`https://github.com/symcon/BildArchiv`  
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Bildarchiv'-Modul unter dem Hersteller '(Sonstige)' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Bildarchiv'-Modul unter dem Hersteller '(Gerät)' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -41,7 +41,7 @@ Name            | Beschreibung
 --------------- | ---------------------------------
 Bild            | Quellbild, welches kopiert werden soll
 Anzahl          | Maximale Anzahl an Bildern, die gespeichert werden sollen
-Auslösevariable | Variable bei dessen Änderung das Quellbild ins Archiv kopiert werden soll 
+Auslösevariable | Variable bei deren Änderung das Quellbild ins Archiv kopiert werden soll 
 
 ### 5. Statusvariablen und Profile
 
