@@ -27,8 +27,8 @@ Das Modul kopiert bei Auslösung durch eine gewählte Variable ein Bild. Es ist 
 
 ### 3. Software-Installation
 
-* Über den Modul Store das Modul Bild-Archiv installieren.
-* Alternativ über das Modul Control folgende URL hinzufügen:
+* Über den Module Store das Modul Bild-Archiv installieren.
+* Alternativ über das Module Control folgende URL hinzufügen:
 `https://github.com/symcon/BildArchiv`  
 
 ### 4. Einrichten der Instanzen in IP-Symcon
