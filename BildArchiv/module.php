@@ -45,6 +45,18 @@ class BildArchiv extends IPSModule
         } else {
             IPS_SetEventActive($eID, false);
         }
+
+        //Add references
+        foreach ($this->GetReferenceList() as $referenceID) {
+            $this->UnregisterReference($referenceID);
+        }
+        if ($triggerID != 0) {
+            $this->RegisterReference($triggerID);
+        }
+        $imageID = $this->ReadPropertyInteger('ImageID');
+        if ($imageID != 0) {
+            $this->RegisterReference($imageID);
+        }
     }
 
     public function AddImage()
