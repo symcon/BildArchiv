@@ -39,10 +39,10 @@ class BildArchiv extends IPSModule
         }
 
         $triggerID = $this->ReadPropertyInteger('TriggerVariableID');
-        if ($triggerID != 0) {
-            IPS_SetEventTrigger($eID, IPS_GetEvent($eID)['TriggerType'], $triggerID);
+        IPS_SetEventTrigger($eID, IPS_GetEvent($eID)['TriggerType'], $triggerID);
+        if ($triggerID != 0 && IPS_GetEvent($eID)['EventActive'] == false) {
             IPS_SetEventActive($eID, true);
-        } else {
+        } elseif ($triggerID == 0 && IPS_GetEvent($eID)['EventActive'] == true) {
             IPS_SetEventActive($eID, false);
         }
 
