@@ -27,23 +27,20 @@ class BildArchiv extends IPSModule
 
         $this->CreateCategoryByIdent($this->InstanceID, 'Images', 'Bilderarchiv');
 
-        $eID = @IPS_GetObjectIDByIdent('AddImage', $this->InstanceID);
-        if ($eID == 0) {
-            $eID = IPS_CreateEvent(0);
-            IPS_SetParent($eID, $this->InstanceID);
-            IPS_SetIdent($eID, 'AddImage');
-            IPS_SetName($eID, 'AddImage');
-            IPS_SetHidden($eID, true);
-            IPS_SetEventTriggerSubsequentExecution($eID, false);
-            IPS_SetEventScript($eID, 'BA_AddImage($_IPS[\'TARGET\']);');
-        }
-
         $triggerID = $this->ReadPropertyInteger('TriggerVariableID');
-        IPS_SetEventTrigger($eID, IPS_GetEvent($eID)['TriggerType'], $triggerID);
-        if ($triggerID != 0 && IPS_GetEvent($eID)['EventActive'] == false) {
-            IPS_SetEventActive($eID, true);
-        } elseif ($triggerID == 0 && IPS_GetEvent($eID)['EventActive'] == true) {
-            IPS_SetEventActive($eID, false);
+        if ($triggerID != 0) {
+            $eID = @IPS_GetObjectIDByIdent('AddImage', $this->InstanceID);
+            if ($eID == 0) {
+                $eID = IPS_CreateEvent(0);
+                IPS_SetParent($eID, $this->InstanceID);
+                IPS_SetIdent($eID, 'AddImage');
+                IPS_SetName($eID, 'AddImage');
+                IPS_SetHidden($eID, true);
+                IPS_SetEventTriggerSubsequentExecution($eID, false);
+                IPS_SetEventScript($eID, 'BA_AddImage($_IPS[\'TARGET\']);');
+                IPS_SetEventTrigger($eID, IPS_GetEvent($eID)['TriggerType'], $triggerID);
+                IPS_SetEventActive($eID, true);
+            }
         }
 
         //Add references
