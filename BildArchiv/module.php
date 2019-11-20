@@ -39,7 +39,9 @@ class BildArchiv extends IPSModule
                 IPS_SetEventTriggerSubsequentExecution($eID, false);
                 IPS_SetEventScript($eID, 'BA_AddImage($_IPS[\'TARGET\']);');
                 IPS_SetEventTrigger($eID, IPS_GetEvent($eID)['TriggerType'], $triggerID);
-                IPS_SetEventActive($eID, true);
+                IPS_SetEventActive($eID, true); 
+            } else {
+                IPS_SetEventTrigger($eID, IPS_GetEvent($eID)['TriggerType'], $triggerID);
             }
         }
     }
