@@ -15,7 +15,7 @@ Das Modul kopiert bei Auslösung durch eine gewählte Variable ein Bild. Es ist 
 
 * Auswählbares Quellbild und auswählbare Auslöservariable
 * Einstellbare Anzahl von Bildern, welche gespeichert werden sollen
-* Erstellt ein Ereignis, welches auf Variablenaktualisierung der Auslöservariable reagiert
+* Wenn eine Auslöservariable ausgewählt ist wird ein Ereignis erstellt, welches auf die Aktualisierung dieser reagiert
 * Das Ereignis kann bis auf die Auslöservariable vollständig personalisiert werden
 * Bilder bekommen den Zeitpunkt des Auslösens als Namen
 * Bilder werden chronologisch von alt -> neu in der Kategorie Bilder angezeigt
