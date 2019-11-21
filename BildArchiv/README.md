@@ -33,7 +33,7 @@ Das Modul kopiert bei Auslösung durch eine gewählte Variable ein Bild. Es ist 
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Bildarchiv'-Modul unter dem Hersteller '(Gerät)' aufgeführt.  
+- Unter "Instanz hinzufügen" kann das 'Bildarchiv'-Modul mithilfe der Schnellsuche einfach gefunden werden.  
 
 __Konfigurationsseite__:
 
