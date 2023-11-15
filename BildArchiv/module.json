@@ -3,8 +3,7 @@
     "name": "BildArchiv",
     "type": 3,
     "vendor": "",
-    "aliases": 
-    [
+    "aliases": [
         "BildArchiv"
     ],
     "parentRequirements": [],
