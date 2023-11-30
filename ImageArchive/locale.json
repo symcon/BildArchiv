@@ -6,7 +6,9 @@
             "Maximum quantity of images stored": "Wieviele Bilder maximal gespeichert werden sollen",
             "Quantity": "Anzahl",
             "Which variable triggers the module to copy the selected image.": "Welche Variable löst ein Kopieren des Bildes aus",
-            "Triggervariable": "Auslösevariable"
+            "Triggervariable": "Auslösevariable",
+            "ImageArchive": "BildArchiv",
+            "https://www.symcon.de/en/service/documentation/module-reference/image-archive/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/bildarchiv/"
         }
     }
 }
