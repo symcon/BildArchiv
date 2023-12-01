@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-class BildArchiv extends IPSModule
+class ImageArchive extends IPSModule
 {
     public function Create()
     {

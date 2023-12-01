@@ -1,14 +1,14 @@
 {
     "id": "{FC4367A7-3847-442D-95FD-ABCDEF8D9F65}",
-    "name": "BildArchiv",
+    "name": "ImageArchive",
     "type": 3,
     "vendor": "",
     "aliases": [
-        "BildArchiv"
+        "ImageArchive"
     ],
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
     "prefix": "BA",
-    "url": "https://github.com/symcon/BildArchiv/tree/master/BildArchiv"
+    "url": "https://www.symcon.de/en/service/documentation/module-reference/image-archive/"
 }

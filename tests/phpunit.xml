@@ -6,7 +6,7 @@
   </php>
   <source>
     <include>
-      <directory suffix=".php">../BildArchiv</directory>
+      <directory suffix=".php">../ImageArchive</directory>
     </include>
   </source>
 </phpunit>

@@ -8,8 +8,8 @@ class BildArchivValidationTest extends TestCaseSymconValidation
     {
         $this->validateLibrary(__DIR__ . '/..');
     }
-    public function testValidateBildArchivModule(): void
+    public function testValidateImageArchiveModule(): void
     {
-        $this->validateModule(__DIR__ . '/../BildArchiv');
+        $this->validateModule(__DIR__ . '/../ImageArchive');
     }
 }
