@@ -28,10 +28,10 @@ class ImageArchive extends IPSModule
         //Never delete this line!
         parent::ApplyChanges();
 
-        if($this->ReadPropertyBoolean('LegacyMode')) {
+        if ($this->ReadPropertyBoolean('LegacyMode')) {
             $this->CreateCategoryByIdent($this->InstanceID, 'Images', 'Bilderarchiv');
         } else {
-            if(@$this->GetIDForIdent('Images')) {
+            if (@$this->GetIDForIdent('Images')) {
                 //Wenn Leagcy Mode off aber Kategorie vorhanden, setze den Parent der Bilder auf die Instanz
                 $cID = $this->GetIDForIdent('Images');
                 foreach (IPS_GetChildrenIDs($cID) as $childIDs) {
@@ -74,14 +74,14 @@ class ImageArchive extends IPSModule
 
     public function GetConfigurationForm()
     {
-        $form = json_decode(file_get_contents(__DIR__.'/form.json'), true);
+        $form = json_decode(file_get_contents(__DIR__ . '/form.json'), true);
         $form['elements'][0]['visible'] = $this->ReadPropertyBoolean('LegacyMode');
         return json_encode($form);
     }
 
     public function AddImage()
     {
-        if($this->ReadPropertyBoolean('LegacyMode')) {
+        if ($this->ReadPropertyBoolean('LegacyMode')) {
             $cID = IPS_GetObjectIDByIdent('Images', $this->InstanceID);
         } else {
             $cID = $this->InstanceID;
@@ -99,7 +99,8 @@ class ImageArchive extends IPSModule
         $childIDs = IPS_GetChildrenIDs($CID);
 
         //Sortieren der childIDs nach Position (älteste Bilder nach vorne)
-        usort($childIDs, function ($a, $b) {
+        usort($childIDs, function ($a, $b)
+        {
             $a = IPS_GetObject($a);
             $b = IPS_GetObject($b);
             return ($a['ObjectPosition'] < $b['ObjectPosition']) ? -1 : (($a['ObjectPosition'] == $b['ObjectPosition']) ? 0 : 1);
@@ -109,7 +110,7 @@ class ImageArchive extends IPSModule
             //Anzahl Bilder welche gelöscht werden müssen
             $delCount = count($childIDs) - $this->ReadPropertyInteger('MaxQuantity');
             for ($i = 0; $i <= $delCount; $i++) {
-                if(IPS_GetObject($childIDs[$i])['ObjectType'] == 5) {
+                if (IPS_GetObject($childIDs[$i])['ObjectType'] == 5) {
                     IPS_DeleteMedia($childIDs[$i], true);
                 }
             }
