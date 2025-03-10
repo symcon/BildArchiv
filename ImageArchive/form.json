@@ -2,7 +2,7 @@
     "elements": [
         {
             "type": "CheckBox",
-            "caption": "Legacy Mode",
+            "caption": "Legacy Mode: Support of the Category",
             "name": "LegacyMode"
         },
         {

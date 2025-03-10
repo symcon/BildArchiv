@@ -8,7 +8,8 @@
             "Which variable triggers the module to copy the selected image.": "Welche Variable löst ein Kopieren des Bildes aus",
             "Triggervariable": "Auslösevariable",
             "Image-Archive": "Bild-Archiv",
-            "https://www.symcon.de/en/service/documentation/module-reference/image-archive/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/bildarchiv/"
+            "https://www.symcon.de/en/service/documentation/module-reference/image-archive/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/bildarchiv/",
+            "Legacy Mode: Support of the Category": "Legacy Mode: Unterstützung der Kategorie"
         }
     }
 }
