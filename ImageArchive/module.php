@@ -8,7 +8,10 @@ class ImageArchive extends IPSModule
         //Never delete this line!
         parent::Create();
 
+        $legacyMode = @$this->GetIDForIdent('Images') !== false;
+
         //Properties
+        $this->RegisterPropertyBoolean('LegacyMode', $legacyMode);
         $this->RegisterPropertyInteger('ImageID', 0);
         $this->RegisterPropertyInteger('TriggerVariableID', 0);
         $this->RegisterPropertyInteger('MaxQuantity', 10);
@@ -25,7 +28,18 @@ class ImageArchive extends IPSModule
         //Never delete this line!
         parent::ApplyChanges();
 
-        $this->CreateCategoryByIdent($this->InstanceID, 'Images', 'Bilderarchiv');
+        if ($this->ReadPropertyBoolean('LegacyMode')) {
+            $this->CreateCategoryByIdent($this->InstanceID, 'Images', 'Bilderarchiv');
+        } else {
+            if (@$this->GetIDForIdent('Images')) {
+                //Wenn Leagcy Mode off aber Kategorie vorhanden, setze den Parent der Bilder auf die Instanz
+                $cID = $this->GetIDForIdent('Images');
+                foreach (IPS_GetChildrenIDs($cID) as $childIDs) {
+                    IPS_SetParent($childIDs, $this->InstanceID);
+                }
+                IPS_DeleteCategory($cID);
+            }
+        }
 
         $triggerID = $this->ReadPropertyInteger('TriggerVariableID');
         if ($triggerID != 0) {
@@ -58,9 +72,20 @@ class ImageArchive extends IPSModule
         }
     }
 
+    public function GetConfigurationForm()
+    {
+        $form = json_decode(file_get_contents(__DIR__ . '/form.json'), true);
+        $form['elements'][0]['visible'] = $this->ReadPropertyBoolean('LegacyMode');
+        return json_encode($form);
+    }
+
     public function AddImage()
     {
-        $cID = IPS_GetObjectIDByIdent('Images', $this->InstanceID);
+        if ($this->ReadPropertyBoolean('LegacyMode')) {
+            $cID = IPS_GetObjectIDByIdent('Images', $this->InstanceID);
+        } else {
+            $cID = $this->InstanceID;
+        }
 
         //Erst kontrollieren ob das Maximum an Bildern erreicht ist, wenn ja überschüssige Bilder löschen
         $this->CheckForDeletePicture($cID);
@@ -85,7 +110,9 @@ class ImageArchive extends IPSModule
             //Anzahl Bilder welche gelöscht werden müssen
             $delCount = count($childIDs) - $this->ReadPropertyInteger('MaxQuantity');
             for ($i = 0; $i <= $delCount; $i++) {
-                IPS_DeleteMedia($childIDs[$i], true);
+                if (IPS_GetObject($childIDs[$i])['ObjectType'] == 5) {
+                    IPS_DeleteMedia($childIDs[$i], true);
+                }
             }
         }
     }

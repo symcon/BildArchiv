@@ -1,6 +1,11 @@
 {
     "elements": [
         {
+            "type": "CheckBox",
+            "caption": "Legacy Mode: Support of the Category",
+            "name": "LegacyMode"
+        },
+        {
             "type": "Label",
             "label": "Image which should be copied."
         },
