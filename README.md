@@ -6,5 +6,5 @@
 
 Folgende Module beinhaltet das BildArchiv Repository:
 
-- __Bild-Archiv__ ([Dokumentation](https://www.symcon.de/de/service/dokumentation/modulreferenz/bildarchiv))  
+- __Bild-Archiv__ ([Dokumentation](https://www.symcon.de/de/service/dokumentation/modulreferenz/bildarchiv/))  
 	Kopiert bei Auslösung durch eine gewählte Variable ein Bild
